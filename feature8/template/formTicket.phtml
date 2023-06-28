@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Form Ticket</title>
+</head>
+<body>
+        <h1>Informations event:</h1>
+        <table>
+        <tr>
+                <td>Name event</td>
+                <td>Place Limit</td>
+                <td>Address event</td>
+        </tr>
+        <tr>
+                <td><?php $_SESSION['event']['name']; ?></td>
+                <td><?php $_SESSION['event']['name']; ?></td>
+                <td><?php $_SESSION['event']['name']; ?></td>
+        </tr>
+        </table>
+
+        <?php
+            if($_SESSION['config']['feature9'] && $_SESSION['config']['feature10']) 
+            {
+        ?>
+            <form action="" name="step1" method="post">
+
+                <fieldset>
+                    <legend>Choice type ticket:</legend>
+                    <div>
+                    <input type="radio" id="paperticket" name="paperticket" value="paperticket"
+                            checked>
+                    <label for="huey">PaperTicket</label>
+                    </div>
+
+                    <div>
+                    <input type="radio" id="eticket" name="eticket" value="eticket">
+                    <label for="dewey">ETicket</label>
+                    </div>
+
+                </fieldset>
+                <button submit="submit" name="step1">Next</button>
+            </form>
+
+        <?php 
+        
+            if(!empty($_POST['step1'])) 
+            {
+        ?>
+
+            <form action="" name="step2" method="post">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" />
+                <input type="submit" name="submit" value="Get ticket" />
+                
+                <?php
+                    if(!empty($_POST['paperticket'])) {
+                        include_once('feature9/template/formPaperTicket.phtml');
+                    }
+                ?>
+                <button submit="submit" name="step2">Next</button>
+            </form>
+        
+        <?php
+
+            }
+            }
+        ?>
+
+</body>
+</html>
