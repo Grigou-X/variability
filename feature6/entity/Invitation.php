@@ -1,7 +1,7 @@
 <?php
 
-include_once('feature8/entity/Ticket.php');
-class ETicket extends Ticket
+include_once('core/entity/Participation.php');
+class Invitation extends Participation
 {
 
     public function __construct($email)
@@ -11,6 +11,6 @@ class ETicket extends Ticket
     
     public function send()
     {
-        echo "Ticket sent to email: ".$this->email;
+        echo "Invitation sent to email: ".$this->email;
     }
 }

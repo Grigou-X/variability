@@ -1,6 +1,6 @@
 <?php
 
-include('feature1/entity/PhysicalEvent.php');
+include_once('feature1/entity/PhysicalEvent.php');
 class PlaceAttributateEvent extends PhysicalEvent
 {
     public $row;

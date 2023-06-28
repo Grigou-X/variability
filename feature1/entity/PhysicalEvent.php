@@ -1,10 +1,11 @@
 <?php
 
-include('core/entity/event.php');
+include_once('core/entity/event.php');
 class PhysicalEvent extends Event
 {
     public $placeLimit;
     public $address;
+
     public function __construct($name, $placeLimit, $address)
     {
         $this->placeLimit = $placeLimit;

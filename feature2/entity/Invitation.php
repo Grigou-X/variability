@@ -1,6 +1,6 @@
 <?php
 
-include('core/entity/Participation.php');
+include_once('core/entity/Participation.php');
 class Invitation extends Participation
 {
 

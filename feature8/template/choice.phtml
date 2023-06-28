@@ -1,9 +1,109 @@
-<?php 
+<html>
+
+<head>
+    <title>Form Ticket</title>
+</head>
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+    }
+
+    td,
+    th {
+        border: 1px solid black;
+        padding: 1em;
+    }
+    </style>
+<body>
+        <h1>Informations event:</h1>
+        <table style="margin-bottom:20px">
+        <tr>
+                <td>Name event</td>
+                <td>Place Limit</td>
+                <td>Address event</td>
+        </tr>
+        <tr>
+            <?php 
+                if(empty($_POST['typeTicket'])) 
+                {
+                    require_once 'feature7/entity/PlaceAttributateEvent.php';
+                }
 
 
-if($_SESSION['config']['feature9'])
-{
-    include_once('feature9/template/formPaperTicket.phtml');
-}
+                if (isset($_SESSION['event'])) {
 
-?>
+                    $event = unserialize($_SESSION['event']);
+
+                    // Accéder à chaque attribut de l'objet "event"
+                    $name = $event->name;
+                    $placeLimit = $event->placeLimit;
+                    $address = $event->address;
+                    $row = $event->row;
+                    $placeByRow = $event->placeByRow;
+                }
+            ?>
+        <tr>
+            <td><?php echo $name; ?></td>
+            <td><?php echo $placeLimit; ?></td>
+            <td><?php echo $address; ?></td>
+        </tr>
+        </table>
+
+        <?php
+        var_dump($_SESSION['config']['feature9']);
+        var_dump($_SESSION['config']['feature10']);
+            if($_SESSION['config']['feature9'] && $_SESSION['config']['feature10']) {
+        ?>
+            <form action="" name="step1" method="post">
+
+                <?php
+                    $paperticket = true;
+                    $eticket = false;
+
+                    if(isset($_POST['typeTicket'])) {
+                        if($_POST['typeTicket'] == "paperticket") {
+                            $paperticket = true;
+                            $eticket = false;
+                        } elseif($_POST['typeTicket'] == "eticket") {
+                            $eticket = true;
+                            $paperticket = false;
+                        }
+                    }
+                ?>
+
+                <fieldset>
+                    <legend>Choice type ticket:</legend>
+                    <div>
+                    <input type="radio" id="typeTicket" name="typeTicket" value="paperticket"
+                    <?php if($paperticket) {
+                        echo "checked";
+                    }?>>
+                    <label for="huey">PaperTicket</label>
+                    </div>
+
+                    <div>
+                    <input type="radio" id="typeTicket" name="typeTicket" value="eticket" <?php if($eticket) {
+                        echo "checked";
+                    }?>>
+                    <label for="dewey">ETicket</label>
+                    </div>
+
+                </fieldset>
+                <button submit="submit" name="step1">Next</button>
+            </form>
+
+        <?php
+            }
+            if(isset($_POST['typeTicket'])) 
+            {
+                include_once('feature8/template/formTicket.phtml');
+        
+            }
+            else
+            {
+                include_once('feature8/template/formTicket.phtml');
+            }
+        ?>
+
+</body>
+</html>

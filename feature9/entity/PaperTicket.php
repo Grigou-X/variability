@@ -1,6 +1,6 @@
 <?php
 
-include('feature8/entity/Ticket.php');
+include_once('feature8/entity/Ticket.php');
 class PaperTicket extends Ticket
 {
 
