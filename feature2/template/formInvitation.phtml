@@ -7,6 +7,9 @@
     <form action="" name="invitationEvent" method="post">
         <label for="email">Email</label>
         <input type="text" name="email" id="email" />
+        <?php if($_SESSION['config']['feature11']): 
+            include_once('feature11/template/formNominate.phtml');
+        endif; ?>
         <input type="submit" value="Send" />
     </form>
 </body>

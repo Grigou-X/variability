@@ -1,7 +1,7 @@
 <?php
 
 include_once('feature1/entity/PhysicalEvent.php');
-class PlaceAttributateEvent extends PhysicalEvent
+class TicketAttributateEvent extends PhysicalEvent
 {
     public $row;
     public $placeByRow;

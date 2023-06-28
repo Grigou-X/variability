@@ -6,5 +6,8 @@
                         include_once('feature9/template/formPaperTicket.phtml');
                     }
                 ?>
+            <?php if($_SESSION['config']['feature11']): 
+                include_once('feature11/template/formNominate.phtml');
+            endif; ?>
                 <button submit="submit" name="step2"><?php if(isset($_SESSION['price'])){ echo "Pay ".$_SESSION['price']."$"; } else { echo "Get ticket";} ?></button>
             </form>

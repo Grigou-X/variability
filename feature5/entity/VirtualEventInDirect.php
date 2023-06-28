@@ -1,6 +1,6 @@
 <?php
 
-include_once('core/entity/VirtualEvent.php');
+include_once('feature2/entity/VirtualEvent.php');
 class VirtualEventInDirect extends VirtualEvent
 {
 
