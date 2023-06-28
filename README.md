@@ -1,6 +1,6 @@
 ## Resavia
 
-Resavia est une SPL qui permet de gerer les participation a un evenement
+Resavia est une SPL qui permet de gérer les participations à un événement.
 
 ### Prérequis
 
@@ -31,4 +31,4 @@ Le module core contient ce qui est commun a tout les evenemnets et ce charge de 
 
 #### Contrainte
 
-Pour verifier les contraintes, il faut run la classe `Constraint.java`. Toute les configurations possibles seront données ainsi que le nombre de configuration possible.
+Pour vérifier les contraintes, il faut run la classe `Constraint.java`. Toute les configurations possibles seront données ainsi que le nombre de configurations possibles.
