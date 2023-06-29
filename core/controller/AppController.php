@@ -30,6 +30,10 @@ if(!isset($_SESSION['event']))
     {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
+            if(isset($_POST["ticketMax"]))
+            {
+                $_SESSION['ticketMax'] = (int)$_POST["ticketMax"];
+            }
             if($_SESSION['config']['feature6'])
             {
                 include_once('feature6/entity/VirtualEventReplay.php');
@@ -60,11 +64,16 @@ else
 {
     if($_SESSION['config']['feature2'])
     {
-
         if(isset($_POST["email"]))
         {
             include_once('feature2/entity/Invitation.php');
             include_once('feature2/entity/VirtualEvent.php');
+            include_once('feature6/entity/VirtualEventReplay.php');
+            include_once('feature5/entity/VirtualEventInDirect.php');
+            $event = unserialize($_SESSION['event']);
+            $count = count($event->attendees);
+            if($_SESSION["ticketMax"] > $count) 
+            {
             $event = unserialize($_SESSION['event']);
             $invitation = new Invitation($_POST["email"]);
             $invitation->send();
@@ -79,6 +88,11 @@ else
             if($_SESSION['config']['feature4'])
             {
                 include_once('feature4/controller/InvitationController.php');
+            }
+            }
+            else
+            {
+                echo "No more ticket available";
             }
         }
         else

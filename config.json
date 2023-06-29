@@ -1,14 +1,14 @@
 {
-    "feature1": false,
-    "feature2": true,
+    "feature1": true,
+    "feature2": false,
     "feature3": true,
     "feature4": true, 
     "feature5": true,
     "feature6": true,
-    "feature7": false,
-    "feature8": false,
+    "feature7": true,
+    "feature8": true,
     "feature9": false,
-    "feature10": false,
+    "feature10": true,
     "feature11": true,
-    "feature12": true
+    "feature12": false
 }

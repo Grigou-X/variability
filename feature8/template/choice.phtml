@@ -19,7 +19,7 @@
         <table style="margin-bottom:20px">
         <tr>
                 <td>Name event</td>
-                <td>Place Limit</td>
+                <td>Ticket Limit</td>
                 <td>Address event</td>
         </tr>
         <tr>
@@ -38,8 +38,14 @@
                     $name = $event->name;
                     $placeLimit = $event->placeLimit;
                     $address = $event->address;
-                    $row = $event->row;
-                    $placeByRow = $event->placeByRow;
+                    if(isset($event->row))
+                    {
+                        $row = $event->row;
+                    }
+                    if(isset($event->placeByRow))
+                    {
+                        $placeByRow = $event->placeByRow;
+                    }
                 }
             ?>
         <tr>
@@ -50,8 +56,6 @@
         </table>
 
         <?php
-        var_dump($_SESSION['config']['feature9']);
-        var_dump($_SESSION['config']['feature10']);
             if($_SESSION['config']['feature9'] && $_SESSION['config']['feature10']) {
         ?>
             <form action="" name="step1" method="post">
@@ -99,7 +103,7 @@
                 include_once('feature8/template/formTicket.phtml');
         
             }
-            else
+            if(($_SESSION['config']['feature9'] && !$_SESSION['config']['feature10']) || (!$_SESSION['config']['feature9'] && $_SESSION['config']['feature10']))
             {
                 include_once('feature8/template/formTicket.phtml');
             }
