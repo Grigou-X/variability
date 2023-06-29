@@ -11,4 +11,4 @@ Cette feature permet la diffusion en direct depuis l'application
 
 ## Composition
 
-- Une entité `entity/VirtualEventInDirect.php` qui hérite de `VirtualEvent` du module feature2.
+- Une entité `entity/VirtualEventInDirect.php` qui hérite de `VirtualEvent.php` du module feature2.
