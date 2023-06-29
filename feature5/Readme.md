@@ -1,7 +1,5 @@
 # Feature 5 -  _Diffusion en direct_
 
-- Cette feature permet la diffusion en direct depuis l'application
-
 ## Description 
 
 Cette feature permet la diffusion en direct depuis l'application
